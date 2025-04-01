@@ -22,7 +22,6 @@
       color: var(--text);
     }
 
-    /* Header */
     header {
       display: flex;
       justify-content: space-between;
@@ -76,17 +75,12 @@
       border-radius: 1rem;
       box-shadow: 0 10px 25px rgba(0,0,0,0.1);
       padding: 1rem;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-10px);
-      transition: all 0.3s ease;
+      display: none;
       z-index: 1;
     }
 
     #menu-toggle:checked + .menu-icon + nav.dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
+      display: block;
     }
 
     nav.dropdown-menu ul {
@@ -116,14 +110,30 @@
       background: linear-gradient(45deg, var(--brand), var(--primary));
     }
 
-    /* Desktop nav - KEEP burger icon */
     @media (min-width: 768px) {
       nav.dropdown-menu {
-        right: 2rem;
+        display: block !important;
+        position: static;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+      }
+
+      nav.dropdown-menu ul {
+        display: flex;
+        gap: 1rem;
+      }
+
+      nav.dropdown-menu li {
+        margin-bottom: 0;
+      }
+
+      nav.dropdown-menu a {
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
       }
     }
 
-    /* Hero */
     .hero {
       display: flex;
       flex-wrap: wrap;
@@ -174,7 +184,6 @@
       border-radius: 1rem;
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 2rem;
