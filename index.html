@@ -11,10 +11,11 @@
         integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
-      --primary: #ff7b00;
+      --primary: #ff7b00; /* oranje */
       --accent: #fff3e0;
       --dark: #1a1a1a;
       --text: #222;
+      --brand: #00a676; /* blauw/groen, voor contact-knop en subtitel */
     }
     body {
       margin: 0;
@@ -41,14 +42,9 @@
     .logo img {
       height: 40px;
     }
-    .logo-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--primary);
-      margin: 0;
-    }
+    /* Verwijderde logo-tekst */
     .nav-link {
-      background-color: #0073e6;
+      background-color: var(--brand);
       color: white;
       padding: 0.5rem 1rem;
       border-radius: 6px;
@@ -78,6 +74,11 @@
       font-size: 2rem;
       color: var(--primary);
       margin-top: 0;
+    }
+    .subtitle {
+      color: var(--brand);
+      font-size: 1.25rem;
+      margin: 0.5rem 0 1rem;
     }
     .hero-text p {
       margin: 1rem 0;
@@ -169,7 +170,6 @@
     <a href="index.html" style="text-decoration: none; display: flex; align-items: center;">
       <div class="logo">
         <img src="aimigo-logo.png" alt="Aimigo Logo" />
-        <h1 class="logo-title">Aimigo</h1>
       </div>
     </a>
     <nav>
@@ -182,6 +182,7 @@
     <section class="hero">
       <div class="hero-text">
         <h1>Everyone deserves a guide</h1>
+        <h2 class="subtitle">Empowering jobseekers</h2>
         <p>Aimigo is your AI-powered buddy, mentor, and coach. We believe everyone deserves a chance to grow, connect, and contribute. That’s why we’re building a platform to make coaching accessible to all.</p>
         <p>Our journeys are short, powerful, and always leave you ready to start anew.</p>
         <div class="hero-buttons">
@@ -209,7 +210,7 @@
       <div class="feature">
         <i class="fas fa-hand-holding-heart"></i>
         <h3>100% free</h3>
-        <p>Our platform is fully accessible with no barriers.</p>
+        <p>Our platform is fully accessible for jobseekers.</p>
       </div>
     </section>
   </main>
