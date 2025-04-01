@@ -25,7 +25,7 @@
       color: var(--text);
       line-height: 1.6;
     }
-    /* Header / nav */
+    /* Header & Hamburger Menu */
     header {
       display: flex;
       justify-content: space-between;
@@ -33,7 +33,7 @@
       padding: 1rem 2rem;
       background-color: #ffffff;
       border-bottom: 1px solid #e0e0e0;
-      flex-wrap: wrap;
+      position: relative;
     }
     .logo {
       display: flex;
@@ -42,20 +42,93 @@
     .logo img {
       height: 40px;
     }
-    nav a {
-      background-color: var(--brand);
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 0.95rem;
+    /* Hamburger Menu Styles */
+    /* Verberg de checkbox */
+    #menu-toggle {
+      display: none;
     }
+    .menu-icon {
+      display: block;
+      cursor: pointer;
+      width: 30px;
+      height: 22px;
+      position: relative;
+      z-index: 2;
+      /* Subtiel speels effect: roteren bij hover */
+      transition: transform 0.3s ease;
+    }
+    .menu-icon:hover {
+      transform: rotate(5deg);
+    }
+    .menu-icon span {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: var(--brand);
+      border-radius: 3px;
+      opacity: 0.8;
+      left: 0;
+      transition: all 0.3s ease;
+    }
+    .menu-icon span:nth-child(1) {
+      top: 0;
+    }
+    .menu-icon span:nth-child(2) {
+      top: 9px;
+    }
+    .menu-icon span:nth-child(3) {
+      top: 18px;
+    }
+    /* Dropdown Menu */
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      right: 2rem;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 200px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 1;
+    }
+    .dropdown-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .dropdown-menu li {
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .dropdown-menu li:last-child {
+      border-bottom: none;
+    }
+    .dropdown-menu a {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: var(--text);
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .dropdown-menu a:hover {
+      background: var(--accent);
+    }
+    /* Toggle dropdown when checkbox is checked */
+    #menu-toggle:checked + .menu-icon + .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    /* Hero Section */
     main {
       max-width: 1200px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
-    /* Hero Section */
     .hero {
       display: flex;
       flex-wrap: wrap;
@@ -153,6 +226,19 @@
       font-size: 0.875rem;
       color: #777;
     }
+    /* Responsive adjustments (optioneel) */
+    @media (min-width: 768px) {
+      /* Verberg hamburger menu op grotere schermen en toon horizontale navigatie */
+      #menu-toggle, .menu-icon, .dropdown-menu {
+        display: none;
+      }
+      nav {
+        display: block;
+      }
+      nav a {
+        margin-left: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -164,33 +250,15 @@
         <img src="aimigo-logo.png" alt="Aimigo Logo" />
       </div>
     </a>
-    <nav>
-      <a href="contact.html">Contact us</a>
-    </nav>
-  </header>
-
-  <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Who walks with you?</h1>
-        <p>Choose a buddy, mentor, or coach that fits you. Personal, digital, and always by your side.</p>
-        <div class="hero-buttons">
-          <a href="Find.html">🎯 Find your aimigo</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="user-coaching.png" alt="User coaching illustration">
-      </div>
-    </section>
-
-    <!-- (Rest of the page content can follow here...) -->
-
-  </main>
-
-  <footer>
-    &copy; 2025 Aimigo – A Dutch non-profit empowering untapped talent.
-  </footer>
-
-</body>
-</html>
+    <!-- Hamburger Menu: zichtbaar op kleinere schermen -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <nav class="dropdown-menu">
+      <ul>
+        <li><a href="Find.html">Find your aimigo</a></li>
+        <li><a href="waiting-list.html">Waiting list</a></li>
+        <li><a href
