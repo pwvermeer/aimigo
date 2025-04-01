@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choose Your Buddy, Mentor, or Coach</title>
+  <!-- Google Font: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome voor icoontjes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --primary: #ff7b00;       /* oranje */
+      --accent: #fff3e0;
+      --dark: #1a1a1a;
+      --text: #222;
+      --brand: #009ba0;         /* blauw/groen voor knoppen */
+      --bg: #fdfdfd;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #ffffff;
+      border-bottom: 1px solid #e0e0e0;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      height: 40px;
+    }
+    nav a {
+      background-color: var(--brand);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    /* Hero sectie */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      background: #ffffff;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    .hero-text {
+      flex: 1 1 400px;
+      padding: 2rem;
+    }
+    .hero-text h1 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-top: 0;
+    }
+    .hero-text p {
+      margin: 1rem 0;
+    }
+    .hero-buttons a {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.75rem;
+      margin-right: 1rem;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .hero-buttons a:hover {
+      background: #e36e00;
+    }
+    .hero-image {
+      flex: 1 1 300px;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
+    /* Step sections */
+    section {
+      margin-bottom: 2rem;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    section h2 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+    /* Avatar cards (Step 1) */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .card {
+      flex: 1 1 250px;
+      background: #f9f9f9;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .card i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .card h3 {
+      margin: 0.5rem 0;
+      color: var(--dark);
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #444;
+      margin: 0.5rem 0;
+    }
+    /* Questionnaire (Step 2) */
+    form.questionnaire {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    form.questionnaire label {
+      font-weight: 600;
+    }
+    form.questionnaire input[type="text"],
+    form.questionnaire select {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      width: 100%;
+      max-width: 400px;
+    }
+    form.questionnaire input[type="range"] {
+      width: 100%;
+      max-width: 400px;
+    }
+    form.questionnaire button {
+      background: var(--brand);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      max-width: 200px;
+      transition: background 0.3s;
+    }
+    form.questionnaire button:hover {
+      background: #007f87;
+    }
+    /* Match section (Step 3) */
+    .match-card {
+      background: #f9f9f9;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .match-card button {
+      background: var(--brand);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 1rem;
+    }
+    .match-card button:hover {
+      background: #007f87;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #ffffff;
+      border-top: 1px solid #e0e0e0;
+      font-size: 0.875rem;
+      color: #777;
+    }
+    .badges {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .badge {
+      background: #f0f0f0;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      font-size: 0.85rem;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="logo-link" style="text-decoration: none;">
+      <div class="logo">
+        <img src="aimigo-logo.png" alt="Aimigo Logo" />
+      </div>
+    </a>
+    <nav>
+      <a href="under-construction.html">Contact us</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Who walks with you?</h1>
+        <p>Choose a buddy, mentor, or coach that fits you. Personal, digital, and always by your side.</p>
+        <div class="hero-buttons">
+          <a href="#choose-avatar">🎯 Find your match</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <!-- Gebruik eventueel een hero-afbeelding of illustratie -->
+        <img src="user-coaching.png" alt="User coaching illustration">
+      </div>
+    </section>
+
+    <!-- Step 1 – Choose your avatar -->
+    <section id="choose-avatar">
+      <h2>Step 1 – Choose who you're looking for</h2>
+      <div class="cards">
+        <!-- Buddy Card -->
+        <div class="card">
+          <i class="fas fa-shoe-prints"></i>
+          <h3>Buddy</h3>
+          <p>Always up for a good conversation. Asks how you really feel.</p>
+          <p><em>"Hi, I'm Sam. Let's take it step by step together."</em></p>
+        </div>
+        <!-- Mentor Card -->
+        <div class="card">
+          <i class="fas fa-brain"></i>
+          <h3>Mentor</h3>
+          <p>Thinks strategically with you. Knows your sector and the route.</p>
+          <p><em>"I'm Max. I'll help you make a smart next move in your career."</em></p>
+        </div>
+        <!-- Coach Card -->
+        <div class="card">
+          <i class="fas fa-bullseye"></i>
+          <h3>Coach</h3>
+          <p>Asks sharp questions and listens between the lines. Challenges you.</p>
+          <p><em>"I'm Lianne. Let's discover what truly energizes you."</em></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 2 – Questionnaire -->
+    <section id="questionnaire">
+      <h2>Step 2 – A few quick questions</h2>
+      <form class="questionnaire" action="#" method="post">
+        <label for="feel">How do you feel today?</label>
+        <input type="range" id="feel" name="feel" min="0" max="100" value="50">
+        
+        <label for="goal">What do you want to discover or achieve?</label>
+        <input type="text" id="goal" name="goal" placeholder="Your answer">
+        
+        <label for="stuck">What are you stuck on right now?</label>
+        <input type="text" id="stuck" name="stuck" placeholder="Your answer">
+        
+        <label for="proud">What are you secretly proud of?</label>
+        <input type="text" id="proud" name="proud" placeholder="Your answer">
+        
+        <label for="guidance">How much guidance do you want?</label>
+        <select id="guidance" name="guidance">
+          <option value="little">A little</option>
+          <option value="occasional">Occasionally</option>
+          <option value="regular">Regularly</option>
+        </select>
+        
+        <button type="submit">Submit Answers</button>
+      </form>
+    </section>
+
+    <!-- Step 3 – Your match is ready -->
+    <section id="match">
+      <h2>Step 3 – Your match is ready</h2>
+      <div class="match-card">
+        <p>Hi, I'm Max. I've read your answers. Ready to see what your next step can be?</p>
+        <button onclick="window.location.href='under-construction.html'">Start your first introduction</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="badges">
+      <span class="badge">Privacy-friendly</span>
+      <span class="badge">Always free to start</span>
+      <span class="badge">Built for people, not algorithms</span>
+    </div>
+    <!-- Mini FAQ (optioneel) -->
+    <div class="faq">
+      <p><strong>FAQ:</strong> What is Aimigo? Aimigo is an AI-powered platform designed to guide you through your next steps – whether as a buddy, mentor, or coach.</p>
+    </div>
+    <p>&copy; 2025 Aimigo – Empowering your journey.</p>
+  </footer>
+
+</body>
+</html>
