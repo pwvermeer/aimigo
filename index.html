@@ -127,11 +127,21 @@
       text-align: center;
       padding: 1.5rem;
       max-width: 350px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      background-color: #ffffff;
     }
     .feature i {
       font-size: 2rem;
       color: var(--primary);
       margin-bottom: 0.5rem;
+      transition: color 0.3s;
+    }
+    .feature:hover i {
+      color: var(--dark);
     }
     .feature h3 {
       margin: 0.5rem 0;
