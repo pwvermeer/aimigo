@@ -4,18 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aimigo – Everyone deserves a guide</title>
-  <!-- Google Font: Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
-      --primary: #ff7b00;       /* orange */
+      --primary: #ff7b00;
       --accent: #fff3e0;
       --dark: #1a1a1a;
       --text: #222;
-      --brand: #009ba0;         /* blue/green for buttons */
+      --brand: #009ba0;
       --bg: #fdfdfd;
     }
     body {
@@ -25,7 +23,6 @@
       color: var(--text);
       line-height: 1.6;
     }
-    /* Header & Hamburger Menu */
     header {
       display: flex;
       justify-content: space-between;
@@ -42,8 +39,6 @@
     .logo img {
       height: 40px;
     }
-    /* Hamburger Menu Styles */
-    /* Verberg de checkbox */
     #menu-toggle {
       display: none;
     }
@@ -54,7 +49,6 @@
       height: 22px;
       position: relative;
       z-index: 2;
-      /* Subtiel speels effect: roteren bij hover */
       transition: transform 0.3s ease;
     }
     .menu-icon:hover {
@@ -71,16 +65,9 @@
       left: 0;
       transition: all 0.3s ease;
     }
-    .menu-icon span:nth-child(1) {
-      top: 0;
-    }
-    .menu-icon span:nth-child(2) {
-      top: 9px;
-    }
-    .menu-icon span:nth-child(3) {
-      top: 18px;
-    }
-    /* Dropdown Menu */
+    .menu-icon span:nth-child(1) { top: 0; }
+    .menu-icon span:nth-child(2) { top: 9px; }
+    .menu-icon span:nth-child(3) { top: 18px; }
     .dropdown-menu {
       position: absolute;
       top: 100%;
@@ -117,13 +104,11 @@
     .dropdown-menu a:hover {
       background: var(--accent);
     }
-    /* Toggle dropdown when checkbox is checked */
     #menu-toggle:checked + .menu-icon + .dropdown-menu {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
     }
-    /* Hero Section */
     main {
       max-width: 1200px;
       margin: 2rem auto;
@@ -176,7 +161,6 @@
       height: auto;
       border-radius: 1rem;
     }
-    /* Features section */
     .features {
       display: flex;
       flex-wrap: wrap;
@@ -217,7 +201,6 @@
       font-size: 0.95rem;
       color: #444;
     }
-    /* Footer */
     footer {
       text-align: center;
       padding: 2rem;
@@ -226,9 +209,7 @@
       font-size: 0.875rem;
       color: #777;
     }
-    /* Responsive adjustments (optioneel) */
     @media (min-width: 768px) {
-      /* Verberg hamburger menu op grotere schermen en toon horizontale navigatie */
       #menu-toggle, .menu-icon, .dropdown-menu {
         display: none;
       }
@@ -250,7 +231,6 @@
         <img src="aimigo-logo.png" alt="Aimigo Logo" />
       </div>
     </a>
-    <!-- Hamburger Menu: zichtbaar op kleinere schermen -->
     <input type="checkbox" id="menu-toggle">
     <label for="menu-toggle" class="menu-icon">
       <span></span>
@@ -261,4 +241,49 @@
       <ul>
         <li><a href="find.html">Find your aimigo</a></li>
         <li><a href="contact.html">Waiting list</a></li>
-        <li><a href
+        <li><a href="team.html">About us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Everyone deserves a guide</h1>
+        <p>Aimigo helps you take the next step with support that suits you: as a buddy, mentor, or coach.</p>
+        <div class="hero-buttons">
+          <a href="find.html">Find your aimigo</a>
+          <a href="team.html">Learn more</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="user-coaching.png" alt="User coaching illustration" />
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature">
+        <i class="fas fa-comments"></i>
+        <h3>Human connection</h3>
+        <p>We make tech feel human — not robotic. Always start from your story.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-rocket"></i>
+        <h3>Quick start</h3>
+        <p>No account, no delay. Just pick and begin.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-heart"></i>
+        <h3>With purpose</h3>
+        <p>Aimigo was built to empower people — not sell their data.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Aimigo – A Dutch non-profit empowering untapped talent.</p>
+  </footer>
+
+</body>
+</html>
