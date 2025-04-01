@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +20,40 @@
       padding: 0;
       line-height: 1.6;
     }
+
+    /* nav bar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #ffffff;
+      border-bottom: 1px solid #e0e0e0;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo img {
+      height: 40px;
+    }
+    .logo-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin: 0;
+    }
+    .nav-link {
+      background-color: #0073e6;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
     .container {
       max-width: 720px;
       margin: 4rem auto;
@@ -39,59 +72,71 @@
     form {
       margin-top: 2rem;
     }
-    input[type=email] {
+    input[type=email],
+    textarea {
       padding: 0.75rem;
       width: 100%;
-      max-width: 400px;
+      max-width: 100%;
       font-size: 1rem;
       margin-bottom: 1rem;
       border: 1px solid #ccc;
       border-radius: 0.75rem;
     }
     button {
-      background: var(--primary);
+      background: #0073e6;
       color: white;
       border: none;
       padding: 0.75rem 1.5rem;
       border-radius: 0.75rem;
       font-weight: 600;
       cursor: pointer;
+      width: 100%;
+      font-size: 1rem;
     }
     button:hover {
-      background: #e36e00;
+      background: #005dc2;
     }
     footer {
       text-align: center;
       font-size: 0.875rem;
       color: #777;
       margin-top: 3rem;
+      padding-bottom: 2rem;
     }
   </style>
 </head>
 <body>
+
+  <!-- responsive navbar -->
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Aimigo logo" />
+      <h1 class="logo-title">Aimigo</h1>
+    </div>
+    <nav>
+      <a href="https://www.aimigo.fr" class="nav-link">Back to homepage</a>
+    </nav>
+  </header>
+
   <main class="container">
     <h1>We're building Aimigo 🚧</h1>
     <p>Aimigo is currently under construction. We're working hard to build a platform that empowers untapped talent with AI-powered coaching and support.</p>
     <p>We’re in dialogue with partners, launching customers, and early adopters to shape the future of digital guidance.</p>
     <p>Want to be the first to know when we go live? Join our waiting list and you’ll get early access as we roll out step by step across Europe in 2025.</p>
 
-<form action="https://formspree.io/f/xwkgovqg" method="POST" style="max-width: 400px; margin: 2em auto; padding: 1.5em; background: #f9f9f9; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-family: sans-serif;">
-  <h2 style="text-align: center; margin-top: 0;">Send a message</h2>
+    <form action="https://formspree.io/f/xwkgovqg" method="POST" style="max-width: 100%; background: #f9f9f9; padding: 1.5em; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <h2 style="text-align: center; margin-top: 0;">Send a message</h2>
 
-  <input type="hidden" name="_redirect" value="https://www.aimigo.fr">
+      <input type="hidden" name="_redirect" value="https://www.aimigo.fr">
 
-  <label for="email" style="display:block; margin-bottom: 0.5em;">Your email address:</label>
-  <input type="email" id="email" name="email" required style="width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #ccc; border-radius: 6px;">
+      <label for="email">Your email address:</label>
+      <input type="email" id="email" name="email" required>
 
-  <label for="message" style="display:block; margin-bottom: 0.5em;">Your message:</label>
-  <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 0.5em; border: 1px solid #ccc; border-radius: 6px; margin-bottom: 1em;"></textarea>
+      <label for="message">Your message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
 
-  <button type="submit" style="width: 100%; padding: 0.75em; background-color: #0073e6; color: white; border: none; border-radius: 6px; font-size: 1em; cursor: pointer;">
-    SEND
-  </button>
-</form>
-
-
+      <button type="submit">SEND</button>
+    </form>
 
     <p style="margin-top: 2rem;">Interested in partnering with Aimigo or contributing to our mission? Drop us a line at <a href="mailto:pwvermeer@gmail.com">pwvermeer@gmail.com</a>.</p>
   </main>
@@ -99,5 +144,6 @@
   <footer>
     &copy; 2025 Aimigo – A Dutch non-profit empowering talent for the future of work.
   </footer>
+
 </body>
 </html>
