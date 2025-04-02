@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aimigo – Everyone deserves a guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #fdfdfd;
+      color: #222;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #fff;
+      border-bottom: 1px solid #e0e0e0;
+      position: relative;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    .menu-icon {
+      display: block;
+      cursor: pointer;
+      width: 30px;
+      height: 22px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .menu-icon span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: #009ba0;
+      border-radius: 3px;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    .menu-icon:hover span {
+      background: #ff7b00;
+      transform: scale(1.1);
+    }
+
+    nav.dropdown-menu {
+      position: absolute;
+      top: 100%;
+      right: 1rem;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      padding: 1rem;
+      display: none;
+      z-index: 2;
+    }
+
+    #menu-toggle:checked + .menu-icon + nav.dropdown-menu {
+      display: block;
+    }
+
+    nav.dropdown-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    nav.dropdown-menu a {
+      display: block;
+      background: linear-gradient(45deg, #ff7b00, #009ba0);
+      color: white;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    nav.dropdown-menu a:hover {
+      transform: scale(1.05);
+      background: linear-gradient(45deg, #009ba0, #ff7b00);
+    }
+
+    @media (min-width: 768px) {
+      nav.dropdown-menu {
+        display: block !important;
+        position: static;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+      }
+
+      nav.dropdown-menu ul {
+        flex-direction: row;
+        gap: 1rem;
+      }
+
+      nav.dropdown-menu a {
+        padding: 0.5rem 1rem;
+        background: transparent;
+        color: #009ba0;
+        border: 2px solid transparent;
+        transition: border 0.3s, transform 0.2s;
+      }
+
+      nav.dropdown-menu a:hover {
+        background: #fff3e0;
+        color: #ff7b00;
+        border: 2px solid #ff7b00;
+        transform: translateY(-2px);
+      }
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 3rem 2rem;
+      background: #fff;
+    }
+
+    .hero-text {
+      flex: 1 1 400px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.5rem;
+      color: #ff7b00;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons a {
+      display: inline-block;
+      margin-right: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #009ba0;
+      color: white;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .hero-buttons a:hover {
+      background: #007f87;
+    }
+
+    .hero-image {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 1rem;
+    }
+
+    footer {
+      background: #fff;
+      padding: 2rem;
+      border-top: 1px solid #e0e0e0;
+      font-size: 0.95rem;
+      color: #444;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .footer-content p {
+      margin: 0.5rem 0;
+    }
+
+    .footer-content .slogan {
+      font-weight: 600;
+      color: #009ba0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">
+      <img src="aimigo-logo.png" alt="Aimigo Logo" />
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <nav class="dropdown-menu">
+      <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="find.html">🎯 Your Aimigo</a></li>
+        <li><a href="contact.html">📝 Waiting List</a></li>
+        <li><a href="team.html">🌍 Team</a></li>
+        <li><a href="contact.html">📬 Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Everyone deserves a guide</h1>
+      <p>Aimigo helps you move forward — with a digital buddy, mentor or coach that fits you.</p>
+      <div class="hero-buttons">
+        <a href="find.html">Find your match</a>
+        <a href="team.html">Learn more</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="user-coaching.png" alt="User coaching illustration" />
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <p class="slogan">Empowering untapped talent through smart technology and real connection.</p>
+      <p>📍 Made in The Netherlands</p>
+      <p>📧 Contact: <a href="mailto:info@aimigo.nl">info@aimigo.nl</a></p>
+      <p>© 2025 Aimigo – All rights reserved</p>
+    </div>
+  </footer>
+</body>
+</html>
