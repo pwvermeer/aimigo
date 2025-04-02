@@ -9,25 +9,9 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <a href="index.html" class="logo">
-      <img src="aimigo-logo.png" alt="Aimigo Logo" />
-    </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label for="menu-toggle" class="menu-icon">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-    <nav class="dropdown-menu">
-      <ul>
-        <li><a href="find.html">🎯 Your Aimigo</a></li>
-        <li><a href="contact.html">📝 Waiting List</a></li>
-        <li><a href="team.html">🌍 Team</a></li>
-        <li><a href="contact.html">📬 Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+
+  <!-- Header wordt geladen vanuit extern bestand -->
+  <div id="header-placeholder"></div>
 
   <section class="hero">
     <div class="hero-text">
@@ -46,5 +30,14 @@
   <footer>
     <p>&copy; 2025 Aimigo – Empowering people with purpose. Built for humans, not algorithms.</p>
   </footer>
+
+  <script>
+    // Laad header.html in
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+      });
+  </script>
 </body>
 </html>
