@@ -1,251 +1,221 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aimigo – Everyone deserves a guide</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #fdfdfd;
-      color: #222;
-    }
+/* Kleuren en typografie */
+:root {
+  --primary: #ff7b00;
+  --brand: #009ba0;
+  --accent: #fff3e0;
+  --dark: #1a1a1a;
+  --bg: #fdfdfd;
+  --text: #222;
+}
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background: #fff;
-      border-bottom: 1px solid #e0e0e0;
-      position: relative;
-    }
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
 
-    .logo img {
-      height: 40px;
-    }
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  flex-wrap: wrap;
+}
 
-    #menu-toggle {
-      display: none;
-    }
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
 
-    .menu-icon {
-      display: block;
-      cursor: pointer;
-      width: 30px;
-      height: 22px;
-      position: relative;
-      z-index: 3;
-    }
+.logo img {
+  height: 40px;
+}
 
-    .menu-icon span {
-      display: block;
-      height: 3px;
-      width: 100%;
-      background: #009ba0;
-      border-radius: 3px;
-      margin: 5px 0;
-      transition: all 0.3s ease;
-    }
+nav a {
+  background-color: var(--brand);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background 0.3s;
+}
 
-    .menu-icon:hover span {
-      background: #ff7b00;
-      transform: scale(1.1);
-    }
+nav a:hover {
+  background: #007f87;
+}
 
-    nav.dropdown-menu {
-      position: absolute;
-      top: 100%;
-      right: 1rem;
-      background: #fff;
-      border-radius: 1rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      padding: 1rem;
-      display: none;
-      z-index: 2;
-    }
+/* Main */
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
 
-    #menu-toggle:checked + .menu-icon + nav.dropdown-menu {
-      display: block;
-    }
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+}
 
-    nav.dropdown-menu ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
+.hero h1 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-top: 0;
+}
 
-    nav.dropdown-menu a {
-      display: block;
-      background: linear-gradient(45deg, #ff7b00, #009ba0);
-      color: white;
-      padding: 0.75rem 1.25rem;
-      border-radius: 0.75rem;
-      font-weight: 600;
-      text-decoration: none;
-      text-align: center;
-      transition: transform 0.2s, background 0.3s;
-    }
+.hero p {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+}
 
-    nav.dropdown-menu a:hover {
-      transform: scale(1.05);
-      background: linear-gradient(45deg, #009ba0, #ff7b00);
-    }
+/* Collapsible Sections */
+details {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
 
-    @media (min-width: 768px) {
-      nav.dropdown-menu {
-        display: block !important;
-        position: static;
-        background: none;
-        box-shadow: none;
-        padding: 0;
-      }
+details summary {
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  outline: none;
+}
 
-      nav.dropdown-menu ul {
-        flex-direction: row;
-        gap: 1rem;
-      }
+details summary::-webkit-details-marker {
+  display: none;
+}
 
-      nav.dropdown-menu a {
-        padding: 0.5rem 1rem;
-        background: transparent;
-        color: #009ba0;
-        border: 2px solid transparent;
-        transition: border 0.3s, transform 0.2s;
-      }
+details[open] summary::after {
+  content: "▲";
+  float: right;
+}
 
-      nav.dropdown-menu a:hover {
-        background: #fff3e0;
-        color: #ff7b00;
-        border: 2px solid #ff7b00;
-        transform: translateY(-2px);
-      }
-    }
+details summary::after {
+  content: "▼";
+  float: right;
+}
 
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      padding: 3rem 2rem;
-      background: #fff;
-    }
+/* Section Titles */
+section > h2 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
 
-    .hero-text {
-      flex: 1 1 400px;
-    }
+/* Founder Section */
+.founder {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  margin: 2rem 0;
+}
 
-    .hero-text h1 {
-      font-size: 2.5rem;
-      color: #ff7b00;
-      margin-bottom: 1rem;
-    }
+.founder img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--brand);
+}
 
-    .hero-text p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-    }
+.founder-info {
+  flex: 1;
+}
 
-    .hero-buttons a {
-      display: inline-block;
-      margin-right: 1rem;
-      padding: 0.75rem 1.5rem;
-      background: #009ba0;
-      color: white;
-      border-radius: 0.75rem;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s;
-    }
+.founder-info h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--dark);
+}
 
-    .hero-buttons a:hover {
-      background: #007f87;
-    }
+.founder-info p {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+  color: #444;
+}
 
-    .hero-image {
-      flex: 1 1 300px;
-      text-align: center;
-    }
+/* Support Section */
+.support {
+  text-align: center;
+  margin: 2rem 0;
+}
 
-    .hero-image img {
-      max-width: 100%;
-      border-radius: 1rem;
-    }
+.support button {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
-    footer {
-      background: #fff;
-      padding: 2rem;
-      border-top: 1px solid #e0e0e0;
-      font-size: 0.95rem;
-      color: #444;
-      text-align: center;
-    }
+.support button:hover {
+  background: #007f87;
+}
 
-    .footer-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+/* Call to Action */
+.cta {
+  text-align: center;
+  margin: 2rem 0;
+}
 
-    .footer-content p {
-      margin: 0.5rem 0;
-    }
+.cta a {
+  background: var(--brand);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
 
-    .footer-content .slogan {
-      font-weight: 600;
-      color: #009ba0;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <a href="index.html" class="logo">
-      <img src="aimigo-logo.png" alt="Aimigo Logo" />
-    </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label for="menu-toggle" class="menu-icon">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-    <nav class="dropdown-menu">
-      <ul>
-        <li><a href="index.html">🏠 Home</a></li>
-        <li><a href="find.html">🎯 Your Aimigo</a></li>
-        <li><a href="contact.html">📝 Waiting List</a></li>
-        <li><a href="team.html">🌍 Team</a></li>
-        <li><a href="contact.html">📬 Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+.cta a:hover {
+  background: #007f87;
+}
 
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Everyone deserves a guide</h1>
-      <p>Aimigo helps you move forward — with a digital buddy, mentor or coach that fits you.</p>
-      <div class="hero-buttons">
-        <a href="find.html">Find your match</a>
-        <a href="team.html">Learn more</a>
-      </div>
-    </div>
-    <div class="hero-image">
-      <img src="user-coaching.png" alt="User coaching illustration" />
-    </div>
-  </section>
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #fff;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.875rem;
+  color: #777;
+}
 
-  <footer>
-    <div class="footer-content">
-      <p class="slogan">Empowering untapped talent through smart technology and real connection.</p>
-      <p>📍 Made in The Netherlands</p>
-      <p>📧 Contact: <a href="mailto:info@aimigo.nl">info@aimigo.nl</a></p>
-      <p>© 2025 Aimigo – All rights reserved</p>
-    </div>
-  </footer>
-</body>
-</html>
+.badges {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.badge {
+  background: #f0f0f0;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+}
