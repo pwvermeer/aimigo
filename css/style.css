@@ -1,120 +1,308 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Find your Aimigo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link rel="stylesheet" href="css/style.css">
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      document.querySelectorAll('.card').forEach(function(card) {
-        card.addEventListener('click', function () {
-          card.classList.toggle('active');
-        });
-      });
+/* Kleuren en typografie */
+:root {
+  --primary: #ff7b00;
+  --brand: #009ba0;
+  --accent: #fff3e0;
+  --dark: #1a1a1a;
+  --bg: #fdfdfd;
+  --text: #222;
+}
 
-      // Laad header in
-      fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('header-placeholder').innerHTML = data;
-        });
-    });
-  </script>
-</head>
-<body>
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
 
-  <!-- Header -->
-  <div id="header-placeholder"></div>
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  position: relative;
+  z-index: 10;
+}
 
-  <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Who walks with you?</h1>
-        <p>Choose a buddy, mentor, or coach that fits you. Personal, digital, and always by your side.</p>
-        <div class="hero-buttons">
-          <a href="#choose-avatar" class="cta-button">Find your match</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="user-coaching.png" alt="User coaching illustration">
-      </div>
-    </section>
+.logo img {
+  height: 40px;
+}
 
-    <!-- Step 1 – Choose your avatar -->
-    <section id="choose-avatar">
-      <h2>Step 1 – Choose who you're looking for</h2>
-      <div class="cards">
-        <div class="card">
-          <i class="fas fa-comments"></i>
-          <h3>Buddy</h3>
-          <p>Always up for a good conversation. Asks how you really feel.</p>
-          <p><em>"Hi, I'm Sam. Let's take it step by step together."</em></p>
-        </div>
-        <div class="card">
-          <i class="fas fa-lightbulb"></i>
-          <h3>Mentor</h3>
-          <p>Thinks strategically with you. Knows your sector and the route.</p>
-          <p><em>"I'm Max. I'll help you make a smart next move in your career."</em></p>
-        </div>
-        <div class="card">
-          <i class="fas fa-bullseye"></i>
-          <h3>Coach</h3>
-          <p>Asks sharp questions and listens between the lines. Challenges you.</p>
-          <p><em>"I'm Lianne. Let's discover what truly energizes you."</em></p>
-        </div>
-      </div>
-    </section>
+/* HAMBURGER MENU */
+#menu-toggle {
+  display: none;
+}
 
-    <!-- Step 2 – Questionnaire -->
-    <section id="questionnaire">
-      <h2>Step 2 – A few quick questions</h2>
-      <form class="questionnaire" action="#" method="post">
-        <label for="feel">How do you feel today?</label>
-        <input type="range" id="feel" name="feel" min="0" max="100" value="50">
+.menu-icon {
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  width: 30px;
+  height: 22px;
+  transition: transform 0.2s ease;
+}
 
-        <label for="goal">What do you want to discover or achieve?</label>
-        <input type="text" id="goal" name="goal" placeholder="Your answer">
+.menu-icon span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: var(--brand);
+  border-radius: 3px;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
 
-        <label for="stuck">What are you stuck on right now?</label>
-        <input type="text" id="stuck" name="stuck" placeholder="Your answer">
+.menu-icon:hover {
+  transform: rotate(3deg) scale(1.05);
+}
 
-        <label for="proud">What are you secretly proud of?</label>
-        <input type="text" id="proud" name="proud" placeholder="Your answer">
+/* DROPDOWN MENU */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 2rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
 
-        <label for="guidance">How much guidance do you want?</label>
-        <select id="guidance" name="guidance">
-          <option value="little">A little</option>
-          <option value="occasional">Occasionally</option>
-          <option value="regular">Regularly</option>
-        </select>
+#menu-toggle:checked + .menu-icon + .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 
-        <button type="submit">Submit Answers</button>
-      </form>
-    </section>
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
 
-    <!-- Step 3 – Your match is ready -->
-    <section id="match">
-      <h2>Step 3 – Your match is ready</h2>
-      <div class="match-card">
-        <p>Hi, I'm Max. I've read your answers. Ready to see what your next step can be?</p>
-        <button onclick="window.location.href='contact.html'">Start your first introduction</button>
-      </div>
-    </section>
-  </main>
+.dropdown-menu a {
+  text-decoration: none;
+  color: var(--brand);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  transition: background 0.2s ease;
+}
 
-  <!-- Footer -->
-  <footer>
-    <div class="badges">
-      <span class="badge">Privacy-friendly</span>
-      <span class="badge">Always free to start</span>
-      <span class="badge">Built for people, not algorithms</span>
-    </div>
-    <p>&copy; 2025 Aimigo – Empowering your journey.</p>
-  </footer>
+.dropdown-menu a:hover {
+  background-color: var(--accent);
+}
 
-</body>
-</html>
+/* CTA-knoppen */
+.cta-button {
+  display: inline-block;
+  background: var(--brand);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 1rem;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background: #007f87;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  margin: 2rem 1rem;
+}
+
+.hero-text {
+  flex: 1 1 400px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-top: 0;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+}
+
+.hero-buttons {
+  margin-top: 1rem;
+}
+
+.hero-image {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  border-radius: 1rem;
+}
+
+/* AVATAR-CARDS */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.card {
+  flex: 1 1 250px;
+  background: #f9f9f9;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card i {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.card h3 {
+  margin: 0.5rem 0;
+  color: var(--dark);
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #444;
+  margin: 0.5rem 0;
+}
+
+/* ACTIEVE KAART */
+.card.active {
+  border: 2px solid var(--brand);
+  background-color: #e6f8f8;
+  box-shadow: 0 0 0 4px rgba(0, 155, 160, 0.1);
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
+/* FORMULIER */
+form.questionnaire {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form.questionnaire label {
+  font-weight: 600;
+}
+
+form.questionnaire input[type="text"],
+form.questionnaire select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+form.questionnaire input[type="range"] {
+  width: 100%;
+  max-width: 400px;
+}
+
+form.questionnaire button {
+  background: var(--brand);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  max-width: 200px;
+  transition: background 0.3s;
+}
+
+form.questionnaire button:hover {
+  background: #007f87;
+}
+
+/* MATCH KAART */
+.match-card {
+  background: #f9f9f9;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.match-card button {
+  background: var(--brand);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 1rem;
+}
+
+.match-card button:hover {
+  background: #007f87;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #fff;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.875rem;
+  color: #777;
+}
+
+.badges {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.badge {
+  background: #f0f0f0;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+}
