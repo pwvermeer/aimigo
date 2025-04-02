@@ -1,20 +1,20 @@
-<header>
-  <a href="index.html" class="logo">
-    <img src="aimigo-logo.png" alt="Aimigo Logo" />
+<header style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; position: relative; background: #fff; border-bottom: 1px solid #e0e0e0;">
+  <a href="index.html" class="logo" style="display: flex; align-items: center;">
+    <img src="aimigo-logo.png" alt="Aimigo Logo" style="height: 40px;" />
   </a>
-  <input type="checkbox" id="menu-toggle" />
-  <label for="menu-toggle" class="menu-icon">
-    <span></span>
-    <span></span>
-    <span></span>
+  <input type="checkbox" id="menu-toggle" style="display: none;" />
+  <label for="menu-toggle" class="menu-icon" style="cursor: pointer; position: relative; z-index: 2;">
+    <span style="display: block; width: 30px; height: 3px; background: var(--brand); border-radius: 3px; margin: 5px 0; transition: all 0.3s ease;"></span>
+    <span style="display: block; width: 30px; height: 3px; background: var(--brand); border-radius: 3px; margin: 5px 0; transition: all 0.3s ease;"></span>
+    <span style="display: block; width: 30px; height: 3px; background: var(--brand); border-radius: 3px; margin: 5px 0; transition: all 0.3s ease;"></span>
   </label>
-  <nav class="dropdown-menu">
-    <ul>
-      <li><a href="find.html">🎯 Find your aimigo</a></li>
-      <li><a href="contact.html">📝 Waiting list</a></li>
-      <li><a href="team.html">🌍 Team</a></li>
-      <li><a href="partners.html">🤝 Partners</a></li>
-      <li><a href="contact.html">📬 Contact</a></li>
+  <nav class="dropdown-menu" style="position: absolute; top: 100%; right: 2rem; background: #fff; border: 1px solid #ddd; border-radius: 0.75rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 1rem; display: none; z-index: 1;">
+    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start;">
+      <li><a href="find.html" style="text-decoration: none; color: var(--brand); font-weight: 600;">Find your aimigo</a></li>
+      <li><a href="contact.html" style="text-decoration: none; color: var(--brand); font-weight: 600;">Waiting list</a></li>
+      <li><a href="team.html" style="text-decoration: none; color: var(--brand); font-weight: 600;">Team</a></li>
+      <li><a href="partners.html" style="text-decoration: none; color: var(--brand); font-weight: 600;">Partners</a></li>
+      <li><a href="contact.html" style="text-decoration: none; color: var(--brand); font-weight: 600;">Contact</a></li>
     </ul>
   </nav>
 
@@ -24,6 +24,9 @@
     }
     .menu-icon:hover {
       transform: rotate(3deg) scale(1.05);
+    }
+    #menu-toggle:checked + .menu-icon + nav.dropdown-menu {
+      display: block;
     }
   </style>
 </header>
