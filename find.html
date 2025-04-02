@@ -2,24 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Choose Your Buddy, Mentor, or Coach</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Find your Aimigo</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    .card.active {
-      border: 2px solid var(--brand);
-      background-color: #e6f8f8;
-      box-shadow: 0 0 0 4px rgba(0, 155, 160, 0.1);
-      transform: scale(1.02);
-      transition: all 0.3s ease;
-    }
-  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('.card').forEach(function(card) {
+        card.addEventListener('click', function () {
+          card.classList.toggle('active');
+        });
+      });
+
+      // Laad header in
+      fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('header-placeholder').innerHTML = data;
+        });
+    });
+  </script>
 </head>
 <body>
 
-  <!-- Dynamisch geladen header -->
+  <!-- Header -->
   <div id="header-placeholder"></div>
 
   <main>
@@ -29,7 +36,7 @@
         <h1>Who walks with you?</h1>
         <p>Choose a buddy, mentor, or coach that fits you. Personal, digital, and always by your side.</p>
         <div class="hero-buttons">
-          <a href="#choose-avatar">Find your match</a>
+          <a href="#choose-avatar" class="cta-button">Find your match</a>
         </div>
       </div>
       <div class="hero-image">
@@ -41,19 +48,19 @@
     <section id="choose-avatar">
       <h2>Step 1 – Choose who you're looking for</h2>
       <div class="cards">
-        <div class="card" onclick="toggleActive(this)">
-          <i class="fas fa-shoe-prints"></i>
+        <div class="card">
+          <i class="fas fa-comments"></i>
           <h3>Buddy</h3>
           <p>Always up for a good conversation. Asks how you really feel.</p>
           <p><em>"Hi, I'm Sam. Let's take it step by step together."</em></p>
         </div>
-        <div class="card" onclick="toggleActive(this)">
-          <i class="fas fa-brain"></i>
+        <div class="card">
+          <i class="fas fa-lightbulb"></i>
           <h3>Mentor</h3>
           <p>Thinks strategically with you. Knows your sector and the route.</p>
           <p><em>"I'm Max. I'll help you make a smart next move in your career."</em></p>
         </div>
-        <div class="card" onclick="toggleActive(this)">
+        <div class="card">
           <i class="fas fa-bullseye"></i>
           <h3>Coach</h3>
           <p>Asks sharp questions and listens between the lines. Challenges you.</p>
@@ -106,22 +113,8 @@
       <span class="badge">Always free to start</span>
       <span class="badge">Built for people, not algorithms</span>
     </div>
-    <div class="faq">
-      <p><strong>FAQ:</strong> What is Aimigo? Aimigo is an AI-powered platform designed to guide you through your next steps – whether as a buddy, mentor, or coach.</p>
-    </div>
     <p>&copy; 2025 Aimigo – Empowering your journey.</p>
   </footer>
 
-  <script>
-    fetch('header.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-      });
-
-    function toggleActive(card) {
-      card.classList.toggle('active');
-    }
-  </script>
 </body>
 </html>
