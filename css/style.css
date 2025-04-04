@@ -1,236 +1,303 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Us – Aimigo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+:root {
+  --primary: #ff7b00;
+  --brand: #009ba0;
+  --accent: #fff3e0;
+  --dark: #1a1a1a;
+  --bg: #fdfdfd;
+  --text: #222;
+}
 
-  <style>
-    :root {
-      --primary: #ff7b00;
-      --brand: #009ba0;
-      --accent: #fff3e0;
-      --dark: #1a1a1a;
-      --bg: #fdfdfd;
-      --text: #222;
-    }
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
 
-    main {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
+section {
+  margin-bottom: 2.5rem;
+}
 
-    section {
-      margin-bottom: 2.5rem;
-    }
+h1, h2 {
+  color: var(--primary);
+}
 
-    h1, h2 {
-      color: var(--primary);
-    }
+.hero {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  text-align: center;
+}
 
-    /* Hero */
-    .hero {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      text-align: center;
-    }
+.hero p {
+  max-width: 700px;
+  margin: 0.5rem auto;
+}
 
-    .hero p {
-      max-width: 700px;
-      margin: 0.5rem auto;
-    }
+/* CTA-knoppen */
+.cta-button,
+.cta a {
+  display: inline-block;
+  background: var(--brand);
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: background 0.3s;
+}
 
-    /* Founder */
-    .founder {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
+.cta-button:hover,
+.cta a:hover {
+  background: #007f87;
+}
 
-    .founder img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 4px solid var(--brand);
-      object-fit: cover;
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
+/* Founder */
+.founder {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
 
-    .founder img:hover {
-      transform: scale(1.05);
-      filter: hue-rotate(10deg) brightness(1.1);
-    }
+.founder img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid var(--brand);
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
 
-    .founder-info h3 {
-      margin: 0;
-      font-size: 1.5rem;
-      color: var(--dark);
-    }
+.founder img:hover {
+  transform: scale(1.05);
+  filter: hue-rotate(10deg) brightness(1.1);
+}
 
-    .founder-info p {
-      margin-top: 0.5rem;
-      color: #444;
-    }
+.founder-info h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--dark);
+}
 
-    /* Collapsibles */
-    details {
-      background: #fff;
-      padding: 1rem;
-      border-radius: 0.75rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      margin-bottom: 1rem;
-      border: 1px solid #eee;
-    }
+.founder-info p {
+  margin-top: 0.5rem;
+  color: #444;
+}
 
-    details summary {
-      font-weight: 600;
-      cursor: pointer;
-    }
+/* Collapsibles */
+details {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-bottom: 1rem;
+  border: 1px solid #eee;
+}
 
-    /* CTA */
-    .cta a {
-      display: inline-block;
-      background: var(--brand);
-      color: white;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.75rem;
-      font-weight: 600;
-      transition: background 0.3s;
-    }
+details summary {
+  font-weight: 600;
+  cursor: pointer;
+}
 
-    .cta a:hover {
-      background: #007f87;
-    }
+/* Like Button */
+.like-button {
+  font-size: 1.5rem;
+  background: white;
+  border: 2px solid var(--brand);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  color: var(--brand);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 1rem auto;
+  transition: background 0.3s, transform 0.2s;
+}
 
-    /* Like Button */
-    .like-button {
-      font-size: 1.5rem;
-      background: white;
-      border: 2px solid var(--brand);
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      color: var(--brand);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      margin: 1rem auto;
-      transition: background 0.3s, transform 0.2s;
-    }
+.like-button:hover {
+  background: var(--accent);
+  transform: scale(1.1);
+}
 
-    .like-button:hover {
-      background: var(--accent);
-      transform: scale(1.1);
-    }
+#like-feedback {
+  text-align: center;
+  font-weight: bold;
+  color: var(--brand);
+  margin-top: 0.5rem;
+}
 
-    #like-feedback {
-      text-align: center;
-      font-weight: bold;
-      color: var(--brand);
-      margin-top: 0.5rem;
-    }
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.875rem;
+  color: #777;
+}
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.875rem;
-      color: #777;
-    }
-  </style>
-</head>
-<body>
+.badges {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
 
-  <!-- Header wordt geladen vanuit extern bestand -->
-  <div id="header-placeholder"></div>
+.badge {
+  background: #f0f0f0;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+}
 
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <h1>About Us – Meet Aimigo</h1>
-      <p>Bridging tech and humanity for better work, wellbeing and participation.</p>
-    </section>
+/* Benefits / partners */
+.benefits-grid, .spots-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
 
-    <!-- Mission -->
-    <section>
-      <h2>Our Mission</h2>
-      <p>Aimigo is on a mission to increase wellbeing, citizen participation and job satisfaction across Europe.</p>
-      <p>We connect cutting-edge technology to social goals — especially for people facing vulnerable circumstances.</p>
-      <p>We support people just enough to take their next step — and then encourage them to go offline again, where the real magic happens: in unexpected encounters and real human contact.</p>
-    </section>
+.benefits-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
 
-    <!-- Why it works -->
-    <section>
-      <h2>Why It Works</h2>
-      <details><summary>Smart tech</summary><p>We help users navigate modern tools in a way that feels natural and safe.</p></details>
-      <details><summary>Real connection</summary><p>Coaching is personal. Our avatars feel like a buddy, mentor or coach — you choose.</p></details>
-      <details><summary>Empowerment first</summary><p>Aimigo supports personal growth, not dependence. The goal is to move forward, not stay stuck.</p></details>
-      <details><summary>A bridge to innovation</summary><p>We can integrate third-party tools and make them accessible to hard-to-reach groups.</p></details>
-    </section>
+.benefit {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
 
-    <!-- Roots -->
-    <section>
-      <h2>Our Roots and Reach</h2>
-      <p>Aimigo is a spin-off of the Dutch non-profit JobOn, with 10+ years of experience supporting jobseekers.</p>
-      <p>We’re building a coalition of the willing: governments, partners and funders who want to shape the future of coaching — together.</p>
-    </section>
+.benefit strong {
+  display: block;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
 
-    <!-- Founder -->
-    <section>
-      <h2>Meet the Founder</h2>
-      <div class="founder">
-        <img src="pieter.png" alt="Pieter Vermeer – Founder">
-        <div class="founder-info">
-          <h3>Pieter Vermeer</h3>
-          <p>Founder of JobOn – Labour market expert – Initiator of Aimigo</p>
-        </div>
-      </div>
-    </section>
+.spots-grid {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  text-align: center;
+}
 
-    <!-- Support -->
-    <section>
-      <h2 style="text-align:center;">Support Our Mission</h2>
-      <p style="text-align:center;">Click the heart to show your support. Every click counts.</p>
-      <div class="like-button" onclick="document.getElementById('like-feedback').innerText = '❤️ Thank you from the Netherlands!'">❤️</div>
-      <div id="like-feedback"></div>
-    </section>
+.spot {
+  background: #fff;
+  border: 2px dashed var(--brand);
+  padding: 1rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
 
-    <!-- CTA -->
-    <section class="cta" style="text-align: center;">
-      <p>We're looking for EU partners, funders and mission-aligned innovators.</p>
-      <a href="contact.html">Get in touch</a>
-    </section>
-  </main>
+.spot:hover {
+  background-color: var(--accent);
+  transform: scale(1.03);
+}
 
-  <footer>
-    <p>&copy; 2025 Aimigo – Empowering untapped talent with purpose and technology.</p>
-  </footer>
+blockquote {
+  background: var(--accent);
+  border-left: 4px solid var(--primary);
+  margin: 2rem 0;
+  padding: 1rem;
+  font-style: italic;
+  color: var(--dark);
+}
 
-  <script>
-    fetch('header.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('header-placeholder').innerHTML = html;
-      });
-  </script>
+/* HEADER + HAMBURGER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  position: relative;
+  z-index: 10;
+}
 
-</body>
-</html>
+.logo img {
+  height: 40px;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  width: 30px;
+  height: 22px;
+  transition: transform 0.2s ease;
+}
+
+.menu-icon span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: var(--brand);
+  border-radius: 3px;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.menu-icon:hover {
+  transform: rotate(3deg) scale(1.05);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 2rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+#menu-toggle:checked + .menu-icon + .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: var(--brand);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: var(--accent);
+}
