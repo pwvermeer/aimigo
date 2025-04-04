@@ -94,4 +94,245 @@ header {
   text-decoration: none;
   color: var(--brand);
   font-weight: 600;
-  font
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: var(--accent);
+}
+
+/* HERO */
+.hero {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  text-align: center;
+  margin: 2rem 1rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.hero .subheading {
+  font-size: 1.25rem;
+  color: var(--text);
+  margin-top: 0.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CTA */
+.cta-button,
+.cta a {
+  display: inline-block;
+  background: var(--brand);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover,
+.cta a:hover {
+  background: #007f87;
+}
+
+/* BENEFITS-GRID */
+.benefits-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 1rem;
+}
+
+.benefit {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.benefit:hover {
+  background-color: var(--accent);
+  transform: scale(1.02);
+}
+
+.benefit i {
+  font-size: 1.5rem;
+  color: var(--brand);
+  margin-bottom: 0.5rem;
+}
+
+.benefit strong {
+  display: block;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+/* SPOTS-GRID */
+.spots-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.spot {
+  background: #fff;
+  border: 2px solid var(--brand);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.spot i {
+  font-size: 1.8rem;
+  color: #bbb;
+  margin-bottom: 0.5rem;
+}
+
+.spot.available:hover {
+  background-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.spot.claimed {
+  opacity: 0.6;
+  border-style: dashed;
+  cursor: not-allowed;
+}
+
+/* CTA lijst */
+.cta ul {
+  max-width: 600px;
+  margin: 1rem auto;
+  text-align: left;
+  padding-left: 1rem;
+}
+
+/* COLLAPSIBLES */
+details {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-bottom: 1rem;
+}
+
+details summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* FOUNDER SECTION */
+.founder {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.founder img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid var(--brand);
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.founder img:hover {
+  transform: scale(1.05);
+  filter: hue-rotate(10deg) brightness(1.1);
+}
+
+.founder-info h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--dark);
+}
+
+.founder-info p {
+  margin-top: 0.5rem;
+  color: #444;
+}
+
+/* LIKE BUTTON */
+.like-button {
+  font-size: 1.5rem;
+  background: white;
+  border: 2px solid var(--brand);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  color: var(--brand);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 1rem auto;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.like-button:hover {
+  background: var(--accent);
+  transform: scale(1.1);
+}
+
+#like-feedback {
+  text-align: center;
+  font-weight: bold;
+  color: var(--brand);
+  margin-top: 0.5rem;
+}
+
+/* BLOCKQUOTE */
+blockquote {
+  background: var(--accent);
+  border-left: 4px solid var(--primary);
+  padding: 1rem;
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+/* FOOTER + BADGES */
+.badges {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: #f0f0f0;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.875rem;
+  color: #777;
+}
