@@ -4,41 +4,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aimigo – Everyone deserves a guide</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <!-- Header wordt geladen vanuit extern bestand -->
   <div id="header-placeholder"></div>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Everyone deserves a guide</h1>
-      
-      <p>Aimigo is your AI-powered buddy, mentor and coach.</p>
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Everyone deserves a guide</h1>
 
-      <p>We believe everyone deserves a fair chance to grow, connect and contribute. That’s why we make coaching accessible to all — empowering untapped talent, bridging mismatches in the labor market, and guiding people towards meaningful careers.</p>
+        <p>Aimigo is your AI-powered buddy, mentor and coach.</p>
 
-      <p><strong>No endless chats, Aimigo is here for short, powerful journeys.</strong> 30 days max — just enough to get you back on your feet and into the real world.</p>
+        <p>We believe everyone deserves a fair chance to grow, connect and contribute. That’s why we make coaching accessible to all — empowering untapped talent, bridging mismatches in the labor market, and guiding people towards meaningful careers.</p>
 
-      <div class="hero-buttons">
-        <a href="find.html" class="cta-button">Find your match</a>
-        <a href="team.html" class="cta-button">Learn more</a>
+        <p><strong>No endless chats, Aimigo is here for short, powerful journeys.</strong> 30 days max — just enough to get you back on your feet and into the real world.</p>
+
+        <div class="hero-buttons">
+          <a href="find.html" class="cta-button">Find your match</a>
+          <a href="team.html" class="cta-button">Learn more</a>
+        </div>
       </div>
-    </div>
-    <div class="hero-image">
-      <img src="user-coaching.png" alt="User coaching illustration" />
-    </div>
-  </section>
+
+      <div class="hero-image">
+        <img src="user-coaching.png" alt="User coaching illustration" />
+      </div>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 Aimigo – Empowering people with purpose. Built for humans, not algorithms.</p>
   </footer>
 
   <script>
-    // Laad header.html in
     fetch('header.html')
       .then(response => response.text())
       .then(data => {
