@@ -1,336 +1,64 @@
-:root {
-  --primary: #ff7b00;
-  --brand: #009ba0;
-  --accent: #fff3e0;
-  --dark: #1a1a1a;
-  --bg: #fdfdfd;
-  --text: #222;
-}
-
-/* Base layout */
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-}
-
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-h1, h2 {
-  color: var(--primary);
-}
-
-/* Header */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: #fff;
-  border-bottom: 1px solid #e0e0e0;
-  position: relative;
-  z-index: 10;
-}
-
-.logo img {
-  height: 40px;
-}
-
-#menu-toggle {
-  display: none;
-}
-
-.menu-icon {
-  cursor: pointer;
-  position: relative;
-  z-index: 2;
-  width: 30px;
-  height: 22px;
-  transition: transform 0.2s ease;
-}
-
-.menu-icon span {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background: var(--brand);
-  border-radius: 3px;
-  margin: 5px 0;
-  transition: all 0.3s ease;
-}
-
-.menu-icon:hover {
-  transform: rotate(3deg) scale(1.05);
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  right: 2rem;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  padding: 1rem;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-}
-
-#menu-toggle:checked + .menu-icon + .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.dropdown-menu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.dropdown-menu a {
-  text-decoration: none;
-  color: var(--brand);
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.5rem;
-  transition: background 0.2s ease;
-}
-
-.dropdown-menu a:hover {
-  background-color: var(--accent);
-}
-
-/* Hero section */
-.hero {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  background: #fff;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.hero-text {
-  flex: 1 1 400px;
-}
-
-.hero-image {
-  flex: 1 1 300px;
-  text-align: center;
-}
-
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 1rem;
-  object-fit: contain;
-}
-
-.hero-buttons {
-  margin-top: 1rem;
-}
-
-.subheading {
-  font-size: 1.2rem;
-  color: var(--text);
-  max-width: 700px;
-  margin: 0.5rem auto;
-}
-
-/* CTA buttons */
-.cta-button,
-.cta a {
-  display: inline-block;
-  background: var(--brand);
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
-  font-weight: 600;
-  text-decoration: none;
-  margin-top: 0.5rem;
-  transition: background 0.3s;
-}
-
-.cta-button:hover,
-.cta a:hover {
-  background: #007f87;
-}
-
-/* Cards (avatars, prompts) */
-.cards, .prompt-grid, .benefits-grid, .spots-grid {
+.prompt-grid {
   display: grid;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
-.cards {
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-
-.card {
-  background: #fff;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  background-color: var(--accent);
-}
-
-.card i {
-  font-size: 2rem;
-  color: var(--brand);
-  margin-bottom: 0.5rem;
-}
-
-.card.active {
-  border: 2px solid var(--brand);
-  background-color: #e6f8f8;
-  transform: scale(1.03);
-}
-
-/* Prompts */
 .prompt-card {
   background: #fff;
-  border-radius: 1rem;
   padding: 1.5rem;
+  border-radius: 1rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1rem;
-  transition: all 0.2s ease;
 }
 
 .prompt-card:hover {
-  background: var(--accent);
   transform: scale(1.02);
+  background: var(--accent);
+}
+
+.prompt-card i {
+  font-size: 1.5rem;
+  color: var(--brand);
 }
 
 .prompt-card code {
+  display: block;
+  white-space: pre-wrap;
+  font-family: monospace;
   background: #f9f9f9;
   padding: 0.75rem;
   border-radius: 0.5rem;
-  font-family: monospace;
   font-size: 0.95rem;
-  white-space: pre-wrap;
+  color: var(--dark);
 }
 
-.prompt-card button {
+.prompt-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.prompt-actions button {
   background: var(--brand);
   color: #fff;
-  border: none;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.prompt-card button:hover {
-  background: #007f87;
-}
-
-/* Questionnaire */
-form.questionnaire {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-form.questionnaire input,
-form.questionnaire select {
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-}
-
-form.questionnaire button {
-  background: var(--brand);
-  color: #fff;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
   border: none;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s;
 }
 
-form.questionnaire button:hover {
+.prompt-actions button:hover {
   background: #007f87;
 }
 
-/* Match card */
-.match-card {
-  background: #fff;
-  padding: 2rem;
-  text-align: center;
-  border-radius: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-/* Spots (partner spots) */
-.spot {
-  background: #fff;
-  border: 2px solid var(--brand);
-  border-radius: 1rem;
-  padding: 1rem;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.spot:hover {
-  background: var(--accent);
-  transform: scale(1.05);
-}
-
-.spot.claimed {
-  opacity: 0.5;
-  border-style: dashed;
-  cursor: not-allowed;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 2rem;
+.copy-count {
   font-size: 0.9rem;
-  color: #777;
-}
-
-.badges {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.badge {
-  background: #eee;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  font-size: 0.85rem;
+  color: #555;
 }
