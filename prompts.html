@@ -7,6 +7,125 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .prompt-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .prompt-card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .prompt-card:hover {
+      background: var(--accent);
+      transform: scale(1.02);
+    }
+
+    .prompt-card i {
+      font-size: 1.5rem;
+      color: var(--brand);
+    }
+
+    .prompt-card code {
+      white-space: pre-wrap;
+      background: #f9f9f9;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.95rem;
+      color: var(--dark);
+      font-family: monospace;
+    }
+
+    .prompt-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .prompt-actions button {
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .prompt-actions button:hover {
+      background: #007f87;
+    }
+
+    .copy-count {
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    .submitted-by {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .submitted-by img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid #ccc;
+    }
+
+    .submit-form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      margin-top: 3rem;
+    }
+
+    .submit-form input,
+    .submit-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .submit-form label {
+      font-weight: 600;
+      display: block;
+      margin-top: 1rem;
+    }
+
+    .submit-form button {
+      margin-top: 1rem;
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .submit-form button:hover {
+      background: #007f87;
+    }
+  </style>
 </head>
 <body>
 
@@ -15,85 +134,101 @@
   <main>
     <section class="hero">
       <h1>🧠 Free Prompts for Job Seekers</h1>
-      <p class="subheading">Unlock the full potential of AI by asking the right questions.</p>
+      <p class="subheading">Smart questions help you make smart moves. Use these to grow, reflect and explore.</p>
     </section>
 
-    <section>
-      <h2>Why prompting matters</h2>
-      <p>A great prompt creates clarity, confidence, and connection. Try these job-seeker prompts, created to help you move forward with curiosity and purpose.</p>
-    </section>
-
-    <section>
-      <div class="prompt-grid">
-
-        <!-- Example Prompt Card -->
-        <div class="prompt-card" data-id="p1">
-          <i class="fas fa-brain"></i>
-          <strong>Prompt – Your personal AI coach</strong>
-          <code id="p1">Imagine you're my career coach. Based on today’s job market, suggest 2 ways I can stay relevant without going back to school. Include free learning resources and mindset advice.</code>
-          <div class="prompt-actions">
-            <button onclick="copyPrompt('p1')">📋 Copy</button>
-            <span class="copy-count">📊 Copied <span id="count-p1">0</span> times</span>
-          </div>
+    <section class="prompt-grid">
+      <!-- Prompt 1 -->
+      <div class="prompt-card" data-id="p1">
+        <i class="fas fa-brain"></i>
+        <strong>Prompt – Your personal AI coach</strong>
+        <code id="p1">Imagine you're my career coach. Based on today’s job market, suggest 2 ways I can stay relevant without going back to school. Include free learning resources and mindset advice.</code>
+        <div class="submitted-by">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Herman" />
+          Submitted by Herman
         </div>
-
-        <div class="prompt-card" data-id="p2">
-          <i class="fas fa-pen-nib"></i>
-          <strong>Prompt – A bold motivation letter</strong>
-          <code id="p2">Write a unique motivation letter for a junior role in a non-profit, highlighting transferable skills from hospitality and community work.</code>
-          <div class="prompt-actions">
-            <button onclick="copyPrompt('p2')">📋 Copy</button>
-            <span class="copy-count">📊 Copied <span id="count-p2">0</span> times</span>
-          </div>
+        <div class="prompt-actions">
+          <button onclick="copyPrompt('p1')">📋 Copy</button>
+          <span class="copy-count">📊 Copied <span id="count-p1">18</span> times</span>
         </div>
+      </div>
 
-        <div class="prompt-card" data-id="p3">
-          <i class="fas fa-hand-holding-heart"></i>
-          <strong>Prompt – Turn doubt into strength</strong>
-          <code id="p3">Ask me 3 self-reflection questions that help uncover my hidden strengths and turn them into stories for interviews.</code>
-          <div class="prompt-actions">
-            <button onclick="copyPrompt('p3')">📋 Copy</button>
-            <span class="copy-count">📊 Copied <span id="count-p3">0</span> times</span>
-          </div>
+      <!-- Prompt 2 -->
+      <div class="prompt-card" data-id="p2">
+        <i class="fas fa-pen-nib"></i>
+        <strong>Prompt – A bold motivation letter</strong>
+        <code id="p2">Write a unique motivation letter for a junior role in a non-profit, highlighting transferable skills from hospitality and community work.</code>
+        <div class="submitted-by">
+          <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Lisa" />
+          Submitted by Lisa
         </div>
-
-        <div class="prompt-card" data-id="p4">
-          <i class="fas fa-network-wired"></i>
-          <strong>Prompt – Connect on LinkedIn</strong>
-          <code id="p4">Write a polite message to connect with someone working in my dream industry. Include a warm opener and a smart closing question.</code>
-          <div class="prompt-actions">
-            <button onclick="copyPrompt('p4')">📋 Copy</button>
-            <span class="copy-count">📊 Copied <span id="count-p4">0</span> times</span>
-          </div>
+        <div class="prompt-actions">
+          <button onclick="copyPrompt('p2')">📋 Copy</button>
+          <span class="copy-count">📊 Copied <span id="count-p2">26</span> times</span>
         </div>
+      </div>
 
-        <div class="prompt-card" data-id="p5">
-          <i class="fas fa-route"></i>
-          <strong>Prompt – Explore new paths</strong>
-          <code id="p5">Based on my experience in retail, suggest 3 new career directions that align with my social energy and need for flexibility.</code>
-          <div class="prompt-actions">
-            <button onclick="copyPrompt('p5')">📋 Copy</button>
-            <span class="copy-count">📊 Copied <span id="count-p5">0</span> times</span>
-          </div>
+      <!-- Prompt 3 -->
+      <div class="prompt-card" data-id="p3">
+        <i class="fas fa-hand-holding-heart"></i>
+        <strong>Prompt – Turn doubt into strength</strong>
+        <code id="p3">Ask me 3 self-reflection questions that help uncover my hidden strengths and turn them into stories for interviews.</code>
+        <div class="prompt-actions">
+          <button onclick="copyPrompt('p3')">📋 Copy</button>
+          <span class="copy-count">📊 Copied <span id="count-p3">12</span> times</span>
         </div>
+      </div>
 
-        <div class="prompt-card" data-id="p6">
-          <i class="fas fa-comments"></i>
-          <strong>Prompt – Reframe your story</strong>
-          <code id="p6">Rewrite: “I’ve been unemployed for a while but I’m ready to contribute.” Give me 3 confident ways to say this on my CV or in an interview.</code>
-          <div class="prompt-actions">
-            <button onclick="copyPrompt('p6')">📋 Copy</button>
-            <span class="copy-count">📊 Copied <span id="count-p6">0</span> times</span>
-          </div>
+      <!-- Prompt 4 -->
+      <div class="prompt-card" data-id="p4">
+        <i class="fas fa-network-wired"></i>
+        <strong>Prompt – Connect on LinkedIn</strong>
+        <code id="p4">Write a polite message to connect with someone working in my dream industry. Include a warm opener and a smart closing question.</code>
+        <div class="prompt-actions">
+          <button onclick="copyPrompt('p4')">📋 Copy</button>
+          <span class="copy-count">📊 Copied <span id="count-p4">5</span> times</span>
         </div>
+      </div>
 
+      <!-- Prompt 5 -->
+      <div class="prompt-card" data-id="p5">
+        <i class="fas fa-route"></i>
+        <strong>Prompt – Explore new paths</strong>
+        <code id="p5">Based on my experience in retail, suggest 3 new career directions that align with my social energy and need for flexibility.</code>
+        <div class="prompt-actions">
+          <button onclick="copyPrompt('p5')">📋 Copy</button>
+          <span class="copy-count">📊 Copied <span id="count-p5">9</span> times</span>
+        </div>
+      </div>
+
+      <!-- Prompt 6 -->
+      <div class="prompt-card" data-id="p6">
+        <i class="fas fa-comments"></i>
+        <strong>Prompt – Reframe your story</strong>
+        <code id="p6">Rewrite: “I’ve been unemployed for a while but I’m ready to contribute.” Give me 3 confident ways to say this on my CV or in an interview.</code>
+        <div class="prompt-actions">
+          <button onclick="copyPrompt('p6')">📋 Copy</button>
+          <span class="copy-count">📊 Copied <span id="count-p6">15</span> times</span>
+        </div>
       </div>
     </section>
 
-    <section class="cta" style="text-align:center;">
-      <h2>✨ Want more personalized prompts?</h2>
-      <p>Explore Aimigo and experience how smart questions can move your journey forward.</p>
-      <a href="find.html" class="cta-button">Try Aimigo</a>
+    <!-- Submission form -->
+    <section class="submit-form">
+      <h2>💡 Have your own prompt to share?</h2>
+      <p>Submit a smart prompt others can benefit from. Your name and email are optional.</p>
+      <form onsubmit="submitPrompt(event)">
+        <label for="prompt">Your prompt</label>
+        <textarea id="prompt" rows="4" required placeholder="Write your prompt here..."></textarea>
+
+        <label for="name">Your name (optional)</label>
+        <input type="text" id="name" placeholder="Jane Doe">
+
+        <label for="email">Your email (optional)</label>
+        <input type="email" id="email" placeholder="jane@email.com">
+
+        <button type="submit">Submit Prompt</button>
+      </form>
     </section>
   </main>
 
@@ -107,5 +242,34 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    const copyCounts = {
+      p1: 18,
+      p2: 26,
+      p3: 12,
+      p4: 5,
+      p5: 9,
+      p6: 15,
+    };
+
+    function copyPrompt(id) {
+      const text = document.getElementById(id).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        copyCounts[id]++;
+        document.getElementById("count-" + id).textContent = copyCounts[id];
+      });
+    }
+
+    function submitPrompt(e) {
+      e.preventDefault();
+      const prompt = document.getElementById("prompt").value;
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+
+      alert("Thank you for your submission! 🎉\nPrompt: " + prompt + (name ? `\nName: ${name}` : "") + (email ? `\nEmail: ${email}` : ""));
+      
+      e.target.reset();
+    }
+  </script>
 </body>
 </html>
