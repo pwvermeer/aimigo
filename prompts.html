@@ -7,92 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .prompt-grid {
-      display: grid;
-      gap: 1.5rem;
-      margin-top: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-
-    .prompt-card {
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .prompt-card:hover {
-      transform: scale(1.02);
-      background: var(--accent);
-    }
-
-    .prompt-card i {
-      font-size: 1.5rem;
-      color: var(--brand);
-    }
-
-    .prompt-card code {
-      display: block;
-      white-space: pre-wrap;
-      font-family: monospace;
-      background: #f9f9f9;
-      padding: 0.75rem;
-      border-radius: 0.5rem;
-      font-size: 0.95rem;
-      color: var(--dark);
-    }
-
-    .prompt-card button {
-      background: var(--brand);
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      border: none;
-      cursor: pointer;
-      align-self: flex-start;
-      font-weight: 600;
-    }
-
-    .prompt-card button:hover {
-      background: #007f87;
-    }
-
-    .filter-bar {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .filter-bar button {
-      background: #fff;
-      border: 2px solid var(--brand);
-      color: var(--brand);
-      font-weight: 600;
-      padding: 0.5rem 1rem;
-      margin: 0.25rem;
-      border-radius: 2rem;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .filter-bar button:hover,
-    .filter-bar button.active {
-      background: var(--brand);
-      color: white;
-    }
-
-    .prompt-card[data-tag] {
-      display: none;
-    }
-
-    .prompt-card[data-tag].show {
-      display: flex;
-    }
-  </style>
 </head>
 <body>
 
@@ -106,73 +20,73 @@
 
     <section>
       <h2>Why prompting matters</h2>
-      <p>A good prompt is more than a question — it's a bridge to insight. Whether you're exploring new careers, rewriting your CV, or reflecting on your strengths, these prompts help AI (and you) get to the heart of things faster. Try, adapt, and grow!</p>
-    </section>
-
-    <section class="filter-bar">
-      <button class="filter-button active" onclick="filterPrompts('all')">All</button>
-      <button class="filter-button" onclick="filterPrompts('motivation')">Motivation</button>
-      <button class="filter-button" onclick="filterPrompts('ai')">AI-coaching</button>
-      <button class="filter-button" onclick="filterPrompts('networking')">Networking</button>
-      <button class="filter-button" onclick="filterPrompts('confidence')">Confidence</button>
-      <button class="filter-button" onclick="filterPrompts('cv')">CV & Letters</button>
+      <p>A great prompt creates clarity, confidence, and connection. Try these job-seeker prompts, created to help you move forward with curiosity and purpose.</p>
     </section>
 
     <section>
       <div class="prompt-grid">
-        <div class="prompt-card show" data-tag="ai">
+
+        <!-- Example Prompt Card -->
+        <div class="prompt-card" data-id="p1">
           <i class="fas fa-brain"></i>
           <strong>Prompt – Your personal AI coach</strong>
-          <code id="p1">
-Imagine you're my career coach. Based on today’s job market, suggest 2 ways I can stay relevant without going back to school. Include free learning resources and mindset advice.
-          </code>
-          <button onclick="copyPrompt('p1')">📋 Copy</button>
+          <code id="p1">Imagine you're my career coach. Based on today’s job market, suggest 2 ways I can stay relevant without going back to school. Include free learning resources and mindset advice.</code>
+          <div class="prompt-actions">
+            <button onclick="copyPrompt('p1')">📋 Copy</button>
+            <span class="copy-count">📊 Copied <span id="count-p1">0</span> times</span>
+          </div>
         </div>
 
-        <div class="prompt-card show" data-tag="motivation cv">
+        <div class="prompt-card" data-id="p2">
           <i class="fas fa-pen-nib"></i>
           <strong>Prompt – A bold motivation letter</strong>
-          <code id="p2">
-Write a unique motivation letter for a junior role in a non-profit, highlighting transferable skills from hospitality and community work. Keep it personal and warm.
-          </code>
-          <button onclick="copyPrompt('p2')">📋 Copy</button>
+          <code id="p2">Write a unique motivation letter for a junior role in a non-profit, highlighting transferable skills from hospitality and community work.</code>
+          <div class="prompt-actions">
+            <button onclick="copyPrompt('p2')">📋 Copy</button>
+            <span class="copy-count">📊 Copied <span id="count-p2">0</span> times</span>
+          </div>
         </div>
 
-        <div class="prompt-card show" data-tag="confidence">
+        <div class="prompt-card" data-id="p3">
           <i class="fas fa-hand-holding-heart"></i>
           <strong>Prompt – Turn doubt into strength</strong>
-          <code id="p3">
-I’m unsure what value I bring to an employer. Ask me 3 self-reflection questions that help uncover my hidden strengths — and turn those into a short elevator pitch.
-          </code>
-          <button onclick="copyPrompt('p3')">📋 Copy</button>
+          <code id="p3">Ask me 3 self-reflection questions that help uncover my hidden strengths and turn them into stories for interviews.</code>
+          <div class="prompt-actions">
+            <button onclick="copyPrompt('p3')">📋 Copy</button>
+            <span class="copy-count">📊 Copied <span id="count-p3">0</span> times</span>
+          </div>
         </div>
 
-        <div class="prompt-card show" data-tag="networking">
-          <i class="fas fa-user-friends"></i>
-          <strong>Prompt – The perfect LinkedIn message</strong>
-          <code id="p4">
-Help me write a short LinkedIn message to someone in my dream field. Make it specific, respectful, and end with a question that invites a reply.
-          </code>
-          <button onclick="copyPrompt('p4')">📋 Copy</button>
+        <div class="prompt-card" data-id="p4">
+          <i class="fas fa-network-wired"></i>
+          <strong>Prompt – Connect on LinkedIn</strong>
+          <code id="p4">Write a polite message to connect with someone working in my dream industry. Include a warm opener and a smart closing question.</code>
+          <div class="prompt-actions">
+            <button onclick="copyPrompt('p4')">📋 Copy</button>
+            <span class="copy-count">📊 Copied <span id="count-p4">0</span> times</span>
+          </div>
         </div>
 
-        <div class="prompt-card show" data-tag="motivation ai">
-          <i class="fas fa-flag-checkered"></i>
-          <strong>Prompt – Career exploration</strong>
-          <code id="p5">
-Based on my background in retail and logistics, suggest 3 future-proof career paths I might not have considered. Include one that’s remote and one that taps into my social side.
-          </code>
-          <button onclick="copyPrompt('p5')">📋 Copy</button>
+        <div class="prompt-card" data-id="p5">
+          <i class="fas fa-route"></i>
+          <strong>Prompt – Explore new paths</strong>
+          <code id="p5">Based on my experience in retail, suggest 3 new career directions that align with my social energy and need for flexibility.</code>
+          <div class="prompt-actions">
+            <button onclick="copyPrompt('p5')">📋 Copy</button>
+            <span class="copy-count">📊 Copied <span id="count-p5">0</span> times</span>
+          </div>
         </div>
 
-        <div class="prompt-card show" data-tag="cv confidence">
-          <i class="fas fa-comment-dots"></i>
+        <div class="prompt-card" data-id="p6">
+          <i class="fas fa-comments"></i>
           <strong>Prompt – Reframe your story</strong>
-          <code id="p6">
-Rewrite this sentence in 3 confident ways for my CV or interview: “I’ve been unemployed for a while but I’m ready for something new.”
-          </code>
-          <button onclick="copyPrompt('p6')">📋 Copy</button>
+          <code id="p6">Rewrite: “I’ve been unemployed for a while but I’m ready to contribute.” Give me 3 confident ways to say this on my CV or in an interview.</code>
+          <div class="prompt-actions">
+            <button onclick="copyPrompt('p6')">📋 Copy</button>
+            <span class="copy-count">📊 Copied <span id="count-p6">0</span> times</span>
+          </div>
         </div>
+
       </div>
     </section>
 
@@ -193,31 +107,5 @@ Rewrite this sentence in 3 confident ways for my CV or interview: “I’ve been
   </footer>
 
   <script src="js/main.js"></script>
-  <script>
-    function copyPrompt(id) {
-      const text = document.getElementById(id).textContent;
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Prompt copied to clipboard ✅");
-      });
-    }
-
-    function filterPrompts(tag) {
-      const cards = document.querySelectorAll('.prompt-card');
-      const buttons = document.querySelectorAll('.filter-button');
-      buttons.forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-
-      cards.forEach(card => {
-        if (tag === 'all') {
-          card.classList.add('show');
-        } else {
-          card.classList.remove('show');
-          if (card.dataset.tag.includes(tag)) {
-            card.classList.add('show');
-          }
-        }
-      });
-    }
-  </script>
 </body>
 </html>
