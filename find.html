@@ -7,26 +7,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css">
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      document.querySelectorAll('.card').forEach(function(card) {
-        card.addEventListener('click', function () {
-          card.classList.toggle('active');
-        });
-      });
-
-      // Laad header in
-      fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('header-placeholder').innerHTML = data;
-        });
-    });
-  </script>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header wordt dynamisch geladen -->
   <div id="header-placeholder"></div>
 
   <main>
@@ -40,7 +24,7 @@
         </div>
       </div>
       <div class="hero-image">
-        <img src="user-coaching.png" alt="User coaching illustration">
+        <img src="user-coaching.png" alt="User coaching illustration" />
       </div>
     </section>
 
@@ -106,7 +90,6 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="badges">
       <span class="badge">Privacy-friendly</span>
@@ -116,5 +99,16 @@
     <p>&copy; 2025 Aimigo – Empowering your journey.</p>
   </footer>
 
+  <!-- Laad de header dynamisch in -->
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('.card').forEach(function(card) {
+        card.addEventListener('click', function () {
+          card.classList.toggle('active');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
