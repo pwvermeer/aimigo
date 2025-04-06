@@ -21,4 +21,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const el = document.getElementById('count-' + id);
     if (el) el.textContent = count;
   });
+  
+});
+const voteCounts = JSON.parse(localStorage.getItem("promptVotes")) || {};
+
+function vote(id, change) {
+  if (!voteCounts[id]) voteCounts[id] = 0;
+  voteCounts[id] += change;
+  document.getElementById("score-" + id).textContent = voteCounts[id];
+  localStorage.setItem("promptVotes", JSON.stringify(voteCounts));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  Object.entries(voteCounts).forEach(([id, score]) => {
+    const el = document.getElementById("score-" + id);
+    if (el) el.textContent = score;
+  });
 });
